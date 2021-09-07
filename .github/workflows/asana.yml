@@ -1,9 +1,20 @@
 name: Validate asana link presence
 
 on:
-  push:
   pull_request:
     types: [opened]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: everphone-gmbh/github-asana-action@385529c13a4c0d311ac611ef4049f5a6ccf1048e
+        with:
+          asana-pat: ${{ secrets.ASANA }}
+          action: 'assert-link'
+          github-token: ${{ secrets.GITHUB }}
+on:
+  push:
 
 jobs:
   sync:
