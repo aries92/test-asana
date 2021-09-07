@@ -12,6 +12,4 @@ jobs:
         with:
           asana-pat: ${{ secrets.ASANA }}
           action: '[assert-link, edited]'
-          # if the branch is labeled a hotfix, skip this check
-#           link-required: ${{ !contains(github.event.pull_request.labels.*.name, 'hotfix') }}
           github-token: ${{ secrets.GITHUB }}
