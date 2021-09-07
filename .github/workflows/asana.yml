@@ -1,9 +1,6 @@
 name: Validate asana link presence
 
-on:
-  push:
-  pull_request:
-    types: [opened]
+on: [push, pull_request]
 
 jobs:
   sync:
