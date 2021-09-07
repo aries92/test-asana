@@ -1,0 +1,17 @@
+name: Validate asana link presence
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: everphone-gmbh/github-asana-action@latest
+        with:
+          asana-pat: '1/30048415169465:5639c0894fecd04b3566126ad6c58f9e'
+          action: 'assert-link'
+          # if the branch is labeled a hotfix, skip this check
+#           link-required: ${{ !contains(github.event.pull_request.labels.*.name, 'hotfix') }}
+          github-token: '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'
